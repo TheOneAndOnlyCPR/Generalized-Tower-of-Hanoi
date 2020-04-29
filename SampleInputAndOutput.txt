@@ -1,0 +1,27 @@
+Enter the inital position of the Tower of Hanoi.
+CBA
+Enter the desired final position of the Tower of Hanoi.
+BCA
+Moving the tower from CBA to BCA.
+The tower is currently CBA.
+1. Move A to B.
+The tower is currently CBB.
+2. Move B to A.
+3. Move B to C.
+4. Move A to C.
+The rings are now sorted and stacked on peg C.
+The tower is currently CCC.
+5. Move C to B.
+6. Move C to A.
+7. Move B to A.
+8. Move C to B.
+9. Move A to C.
+10. Move A to B.
+11. Move C to B.
+The tower is currently BBB.
+12. Move B to A.
+13. Move B to C.
+14. Move A to C.
+The tower is currently BCC.
+15. Move C to A.
+The rings are now arranged in the order BCA.
