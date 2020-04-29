@@ -4,7 +4,7 @@ using namespace std;
 
 class Tower {
 private:
-	int rings;
+	int pegs;
 	string initialTower;
 	string finalTower;
 	int stepcount;
@@ -63,10 +63,9 @@ private:
 				moveMiniTower(height, initialTower[initialTower.length() - height], middleTower, initialTower[initialTower.length() - height - 1], stepcount);
 				initialTower = adjustInitialTowerString(height, initialTower);
 			}
-			cout << "The tower is now " << initialTower << "." << endl;
 			height++;
 		}
-		cout << "The tower is now stacked on peg " << initialTower[0] << "." << endl;
+		cout << "The rings are now sorted and stacked on peg " << initialTower[0] << "." << endl;
 	}
 
 	void sortFinalTower() {
@@ -78,26 +77,24 @@ private:
 				moveMiniTower(initialTower.length() - height + 1, initialTower[height - 1], middleTower, finalTower[height - 1], stepcount);
 				initialTower = adjustFinalTowerString(height, initialTower, finalTower);
 			}
-			cout << "The tower is now " << initialTower << "." << endl;
 			height++;
 		}
-		cout << "The tower is now arranged in the order " << initialTower << "." << endl;
+		cout << "The rings are now arranged in the order " << initialTower << "." << endl;
 	}
 
 public:
 	Tower() {
-		rings = 3;
+		pegs = 3;
 		initialTower = "AAA";
 		finalTower = "AAA";
 		stepcount = 1;
 	}
 	Tower(int n, string initial, string final) {
-		rings = n;
+		pegs = n;
 		initialTower = initial;
 		finalTower = final;
 		stepcount = 1;
 	}
-
 	void arrangeTower() {
 		sortInitialTower();
 		sortFinalTower();
@@ -113,15 +110,14 @@ int main() {
 	cout << "Enter the desired final position of the Tower of Hanoi." << endl;
 	cin >> finalTower;
 
-	for (int i = 0; i < initialTower.length(); i++)
-	{initialTower[i] = toupper(initialTower[i]);}
-	for (int i = 0; i < finalTower.length(); i++)
-	{finalTower[i] = toupper(finalTower[i]);}
-
 	if (initialTower.length() == finalTower.length()) {
-		cout << "Moving the tower from " << initialTower << " to " << finalTower << "." << endl;
-		Tower Hanoi(initialTower.length(), initialTower, finalTower);
+		for (int i = 0; i < initialTower.length(); i++) {
+			initialTower[i] = toupper(initialTower[i]);
+			finalTower[i] = toupper(finalTower[i]);
+		}
 
+		cout << "Moving the tower from " << initialTower << " to " << finalTower << "." << endl;
+		Tower Hanoi(3, initialTower, finalTower);
 		Hanoi.arrangeTower();
 	}
 	else {
